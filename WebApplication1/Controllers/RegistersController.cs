@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using WebApplication1.Models.DTOs;
 using WebApplication1.Models.EFModels;
 using WebApplication1.Models.Services;
 using WebApplication1.Services;
@@ -35,7 +36,7 @@ namespace WebApplication1.Controllers
             }
 
             try { 
-                Register register = new RegisterService().Find(id.Value);
+                Register register = new RegisterService(repository).Find(id.Value);
                 return View(register);
             }
             catch(Exception ex) {
@@ -59,7 +60,7 @@ namespace WebApplication1.Controllers
         {
             try
             {
-                new RegisterService().Create(register);
+                new RegisterService(repository).Create(register.EntetyToDTO());
             }
             catch (Exception ex)
             {

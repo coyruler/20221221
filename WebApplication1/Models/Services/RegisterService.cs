@@ -1,7 +1,9 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using WebApplication1.Models.DTOs;
 using WebApplication1.Models.EFModels;
 using WebApplication1.Models.Services;
 
@@ -14,15 +16,15 @@ namespace WebApplication1.Services
         {
             repository = repo;
         }
-        public void Create(Register register) {
-            var dataIndb = repository.FindByEmail(register.Email);
+        public void Create(RegisterDTO registerDto) {
+            var dataIndb = repository.FindByEmail(registerDto.Email);
             if (dataIndb != null)
             {
                 throw new Exception("這個Email已經報名過了");
             }
-            register.CreateTime = DateTime.Now;
+            registerDto.CreateTime = DateTime.Now;
 
-            repository.Create(register);
+            repository.Create(registerDto);
         }
         public Register Find(int id)
         {
