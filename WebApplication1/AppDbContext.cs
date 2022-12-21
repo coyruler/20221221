@@ -18,4 +18,6 @@ public class AppDbContext : DbContext
     }
 
     public System.Data.Entity.DbSet<WebApplication1.Models.EFModels.Register> Registers { get; set; }
+    public System.Data.Entity.DbSet<WebApplication1.Models.EFModels.Member> Members { get; set; }
+
 }

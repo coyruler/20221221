@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WebApplication1.Models.EFModels;
+using WebApplication1.Models.Repositories;
+using WebApplication1.Models.Services;
 using WebApplication1.Models.VM;
 using WebApplication1.Services;
 
@@ -11,6 +13,12 @@ namespace WebApplication1.Controllers
 {
     public class MembersController : Controller
     {
+        private IMemberRepository repository;
+        public MembersController()
+        {
+            repository = new MemberRepository();
+        }
+
         // GET: Members
         public ActionResult Index()
         {
@@ -29,14 +37,12 @@ namespace WebApplication1.Controllers
         {
             try
             {
-                new MemberService(repository).Create(model.ToDTO());
+                new MemberService(repository).Create(model.ToDto());
             }
             catch (Exception ex)
             {
                 ModelState.AddModelError(string.Empty, ex.Message);
             }
-
-
             if (ModelState.IsValid)
             {
                 return RedirectToAction("Index");
@@ -66,6 +72,5 @@ namespace WebApplication1.Controllers
                 return View();
             }
         }
-               
     }
 }

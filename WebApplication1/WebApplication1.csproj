@@ -136,12 +136,16 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\DTOs\MemberCreateDTO.cs" />
     <Compile Include="Models\DTOs\RegisterDTO.cs" />
     <Compile Include="Models\EFModels\AppDbContext.cs" />
     <Compile Include="Models\EFModels\Member.cs" />
     <Compile Include="Models\EFModels\Register.cs" />
+    <Compile Include="Models\Repositories\MemberRepostitory.cs" />
+    <Compile Include="Models\Services\IMemberRespository.cs" />
     <Compile Include="Models\Services\IRegisterRepository.cs" />
     <Compile Include="Models\Repositories\RegisterRepository.cs" />
+    <Compile Include="Models\Services\MemberService.cs" />
     <Compile Include="Models\VM\MemberCreateVM.cs" />
     <Compile Include="Models\VM\MemberEditVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

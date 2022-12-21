@@ -8,7 +8,7 @@ namespace WebApplication1.Models.EFModels
     public partial class AppDbContext : DbContext
     {
         public AppDbContext()
-            : base("name=AppDbContext1")
+            : base("name=AppConnStr")
         {
         }
 
